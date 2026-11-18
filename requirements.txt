@@ -1,1 +1,3 @@
 pandas
+email.mime.multipart
+mail.mime.text
