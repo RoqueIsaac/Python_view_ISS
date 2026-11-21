@@ -2,7 +2,6 @@
 # 1. Change MY_EMAIL/MY_PASSWORD to your own details.
 # 2. Go to your email provider and make it allow less secure apps.
 # 3. Update the SMTP ADDRESS to match your email provider.
-# See the solution video in the 100 Days of Python Course for explainations.
 
 from datetime import datetime
 import pandas
@@ -14,17 +13,17 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # import os and use it to get the Github repository secrets
-MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_EMAIL    = os.environ.get("MY_EMAIL")
 MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
-MY_LAT  = 20.906389 # Your latitude
+MY_LAT  = 20.906389   # Your latitude
 MY_LONG = -103.976112 # Your longitude
 
 response = requests.get(url="http://api.open-notify.org/iss-now.json")
 response.raise_for_status()
 data = response.json()
 
-iss_latitude =  float(data["iss_position"]["latitude"])
+iss_latitude  =  float(data["iss_position"]["latitude"])
 iss_longitude = float(data["iss_position"]["longitude"])
 
 #print(iss_latitude, iss_longitude)
@@ -41,7 +40,7 @@ data = response.json()
 #print(data)
 
 sunrise = int(data["sunrise"].split("T")[1].split(":")[0])
-sunset = int(data["sunset"].split("T")[1].split(":")[0])
+sunset  = int(data["sunset"].split("T")[1].split(":")[0])
 #print(sunrise, sunset)
 
 time_now = datetime.now()
@@ -51,10 +50,10 @@ ahora = str(time_now).split(" ")[1].split(":")[0]
 my_email = MY_EMAIL
 password = MY_PASSWORD
 msg = MIMEMultipart()
-msg['From'] = my_email  # CRITICAL: Must match YAHOO_EMAIL exactly!
-msg['To'] = my_email
+msg['From'] = my_email  # CRITICAL: Must match EMAIL exactly!
+msg['To']   = my_email
 
-#Your position is within +5 or -5 degrees of the ISS position.
+#Your position is within +10 or -10 degrees of the ISS position.
 #If the ISS is close to my current position
 
 if (MY_LAT - 10 < iss_latitude < MY_LAT + 10) and (MY_LONG - 10 < iss_longitude < MY_LONG + 10):
@@ -90,4 +89,4 @@ else:
        
 
         
-        #connection.sendmail(from_addr=MY_EMAIL, to_addrs=birthday_person["email"], msg=f"Subject:Happy Birthday!\n\n{contents}")
+
