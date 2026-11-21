@@ -57,7 +57,7 @@ msg['To'] = my_email
 #Your position is within +5 or -5 degrees of the ISS position.
 #If the ISS is close to my current position
 
-if (MY_LAT-5 < iss_latitude < MY_LAT + 5) and (MY_LONG - 5 < iss_longitude < MY_LONG + 5):
+if (MY_LAT - 10 < iss_latitude < MY_LAT + 10) and (MY_LONG - 10 < iss_longitude < MY_LONG + 10):
     if int(sunset) <= int(ahora) or int(ahora) <= int(sunrise):
         #print("la ISS es visible")
         msg['Subject'] = " ISS aligned "
