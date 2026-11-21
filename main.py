@@ -73,9 +73,9 @@ if (MY_LAT-5 < iss_latitude < MY_LAT + 5) and (MY_LONG - 5 < iss_longitude < MY_
 else:
     msg['Subject'] = " ISS not aligned "
     with smtplib.SMTP('smtp.mail.yahoo.com', 587) as connection:
-        x = f"""El script corrio, pero la ISS No es visible ->\n
-                ISS coordenadas -> lat: {iss_latitude}, lng: {iss_longitude}\n
-                Tus corrdenadas -> lat: {MY_LAT}, lng: {MY_LONG}"""
+        x = f"""El script corrio, pero la ISS No es visible:\n
+              ISS coords -> lat: {iss_latitude}, lng: {iss_longitude}\n
+              Tus coords -> lat: {MY_LAT}, lng: {MY_LONG}"""
         msg.attach(MIMEText(x, 'plain'))
         connection.starttls()
         connection.login(user=my_email, password=password)
