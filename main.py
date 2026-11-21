@@ -8,9 +8,7 @@
 # 3. Update the SMTP ADDRESS to match your email provider.
 
 from datetime import datetime
-import pandas
 import requests
-import random
 import smtplib
 import os
 from email.mime.multipart import MIMEMultipart
@@ -90,6 +88,9 @@ else:
         connection.starttls()
         connection.login(user=my_email, password=password)
         connection.send_message(msg)
+
+
+
        
 
         
