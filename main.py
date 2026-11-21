@@ -1,3 +1,7 @@
+#This project checks the ISS position,
+#will sent you an email to let you know if it is visible or not from your posicion.
+#the workfllow is set to run every 8 min, from 6pm to 8.59 pm,
+
 # To run and test the code you need to update 4 places:
 # 1. Change MY_EMAIL/MY_PASSWORD to your own details.
 # 2. Go to your email provider and make it allow less secure apps.
